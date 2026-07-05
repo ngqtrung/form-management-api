@@ -6,7 +6,7 @@ authors = ["EasyGDS"]
 package-mode = false
 
 [tool.poetry.dependencies]
-python = "3.8.10"
+python = "~3.8"
 Flask = "3.0.3"
 Flask-SQLAlchemy = "3.1.1"
 Flask-Cors = "4.0.1"
