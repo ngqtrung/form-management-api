@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "form-management-api"
+version = "0.1.0"
+description = "Backend REST API for form management"
+authors = ["EasyGDS"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "3.8.10"
+Flask = "3.0.3"
+Flask-SQLAlchemy = "3.1.1"
+Flask-Cors = "4.0.1"
+SQLAlchemy = "2.0.32"
+alembic = "1.13.2"
+marshmallow = "3.21.3"
+PyJWT = "2.9.0"
+psycopg2-binary = "2.9.9"
+python-dotenv = "1.0.1"
+click = "8.1.7"
+apispec = "6.3.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "8.3.2"
+pytest-cov = "5.0.0"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
