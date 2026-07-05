@@ -6,6 +6,7 @@ from app.models.role import Role
 from app.models.role_permission import RolePermission
 from app.models.submission import Submission
 from app.models.submission_answer import SubmissionAnswer
+from app.models.token_blacklist import TokenBlacklist
 from app.models.user import User
 from app.models.user_role import UserRole
 
@@ -18,6 +19,7 @@ __all__ = [
     "RolePermission",
     "Submission",
     "SubmissionAnswer",
+    "TokenBlacklist",
     "User",
     "UserRole",
 ]
