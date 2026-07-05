@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: formuser
+      POSTGRES_PASSWORD: formpass
+      POSTGRES_DB: form_management
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U formuser -d form_management"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      FLASK_ENV: development
+      SECRET_KEY: change-me-in-production
+      JWT_SECRET_KEY: change-me-in-production
+      JWT_EXPIRES_MINUTES: "480"
+      REFRESH_TOKEN_EXPIRES_DAYS: "7"
+      POSTGRES_URI: postgresql://formuser:formpass@db:5432/form_management
+      CORS_ORIGINS: http://localhost:8080
+    ports:
+      - "5000:5000"
+
+volumes:
+  db_data:
